@@ -1,0 +1,1736 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
+:root {
+  --black-color: #101117;
+  --white-color: #fff;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+
+  background: linear-gradient(
+    to right,
+    #fbfaff 0%,
+    40.00000059604645%,
+    #fbfaff 80.0000011920929%,
+    90.00000059604645%,
+    #ecf0fb 100%
+  );
+  color: var(--black-color);
+  font-size: 16px;
+  line-height: 1.3;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+a {
+  text-decoration: none;
+  color: var(--black-color);
+}
+ul,
+ol {
+  list-style: none;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+h1 {
+  font-size: 160px;
+}
+h2 {
+  font-size: 34px;
+}
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mouse-effect {
+  opacity: 0;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+.circle {
+  position: absolute;
+  background-color: var(--black-color);
+  width: 10px;
+  height: 10px;
+  left: 0px;
+  top: 0px;
+  border-radius: 100%;
+  z-index: 111111;
+  user-select: none;
+  pointer-events: none;
+  transition: all 0.05s;
+}
+.circle-follow {
+  position: absolute;
+  border: 1px solid var(--black-color);
+  width: 40px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  border-radius: 100%;
+  z-index: 111111;
+  user-select: none;
+  pointer-events: none;
+  transition: all 0.1s;
+}
+
+.ham-btn {
+  background: transparent;
+  border: none;
+}
+.ham-btn i {
+  font-size: 24px;
+  color: var(--black-color);
+  line-height: 1;
+}
+
+.main-txt {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: -4px;
+  z-index: -1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hide-text {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.header-inner {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+}
+.header-inner .navbar-brand {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.header-inner nav ul {
+  display: flex;
+  display: -webkit-flex;
+  gap: 120px;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.header-inner nav ul a {
+  font-weight: 500;
+  position: relative;
+  text-transform: uppercase;
+}
+.header-inner nav ul a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--black-color);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+.header-inner nav ul a:hover::after {
+  width: 100%;
+}
+.header-inner .ham-btn img {
+  width: 40px;
+}
+
+.rotated-text {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translate(45%, -600%) rotate(90deg);
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.banner-inner {
+  padding: 100px 20px 30px;
+  min-height: calc(100dvh - 90px);
+  gap: 10px;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  height: 100%;
+}
+.banner-inner .top-desc h5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.banner-inner .top-desc h6 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.banner-inner .top-desc span {
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background: var(--black-color);
+  border-radius: 50px;
+}
+
+.banner-inner .bottom-desc {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+}
+.banner-inner .bottom-desc .left-desc h1 {
+  margin-bottom: 20px;
+}
+.banner-inner .bottom-desc .left-desc .desc-inner h5 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.banner-inner .bottom-desc .left-desc .desc-inner h6 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+.banner-inner .bottom-desc .middle-desc h2 {
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.banner-inner .bottom-desc .right-desc h1 {
+  margin-bottom: 20px;
+  padding-right: 60px;
+  position: relative;
+  text-align: right;
+}
+.banner-inner .bottom-desc .right-desc h1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 20%;
+  height: 6px;
+  background: var(--black-color);
+  transform: translate(-30%, 100%);
+  -webkit-transform: translate(-30%, 100%);
+}
+.banner-inner .bottom-desc .right-desc .desc-inner {
+  display: flex;
+  display: -webkit-flex;
+  gap: 30px;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.banner-inner .bottom-desc .right-desc .desc-inner span {
+  text-transform: uppercase;
+}
+.banner-inner .bottom-desc .right-desc .desc-inner ul {
+  display: flex;
+  display: -webkit-flex;
+  gap: 8px;
+}
+.banner-inner .bottom-desc .right-desc .desc-inner ul li img {
+  width: 16px;
+}
+.banner-inner .bottom-desc .right-desc .desc-inner ul li i {
+  font-size: 16px;
+}
+
+@media (min-width: 1200px) and (max-width: 1499px) {
+  h1 {
+    font-size: 140px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+
+  .header-inner .navbar-brand {
+    font-size: 38px;
+  }
+  .header-inner nav ul {
+    gap: 100px;
+  }
+  .header-inner .ham-btn img {
+    width: 32px;
+  }
+
+  .banner-inner {
+    min-height: calc(100dvh - 85px);
+  }
+  .banner-inner .bottom-desc .right-desc h1 {
+    padding-right: 40px;
+  }
+  .banner-inner .bottom-desc .right-desc h1::after {
+    width: 16%;
+  }
+  .banner-inner .bottom-desc .right-desc .desc-inner {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .mouse-effect {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  h1 {
+    font-size: 100px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  body {
+    font-size: 14px;
+  }
+
+  .header-inner .navbar-brand {
+    font-size: 32px;
+  }
+  .header-inner nav ul {
+    gap: 40px;
+  }
+  .header-inner .ham-btn img {
+    width: 28px;
+  }
+
+  .banner-inner {
+    min-height: calc(100dvh - 76px);
+    padding-top: 80px;
+  }
+  .banner-inner .bottom-desc .right-desc h1 {
+    padding-right: 30px;
+  }
+  .banner-inner .bottom-desc .right-desc h1::after {
+    width: 12%;
+  }
+  .banner-inner .bottom-desc .right-desc .desc-inner {
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 80px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  body {
+    font-size: 14px;
+  }
+
+  .header-inner .navbar-brand {
+    font-size: 28px;
+  }
+  .header-inner nav ul {
+    gap: 20px;
+  }
+  .header-inner .ham-btn img {
+    width: 24px;
+  }
+
+  .banner-inner {
+    min-height: calc(100dvh - 70px);
+    padding-top: 60px;
+  }
+  .banner-inner .bottom-desc .right-desc h1 {
+    padding-right: 30px;
+  }
+  .banner-inner .bottom-desc .right-desc h1::after {
+    width: 10%;
+  }
+  .banner-inner .bottom-desc .right-desc .desc-inner {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  body {
+    font-size: 12px;
+  }
+
+  .main-txt {
+    font-size: 60px;
+  }
+
+  .header-inner .navbar-brand {
+    font-size: 22px;
+  }
+  .header-inner nav ul {
+    gap: 16px;
+    display: none;
+  }
+  .header-inner .ham-btn img {
+    width: 24px;
+  }
+  .rotated-text {
+    font-size: 12px;
+  }
+
+  .banner-inner {
+    min-height: calc(100dvh - 60px);
+    padding-top: 40px;
+  }
+
+  .banner-inner .bottom-desc .left-desc h1 {
+    margin-bottom: 14px;
+  }
+
+  .banner-inner .bottom-desc .middle-desc {
+    display: none;
+  }
+
+  .banner-inner .bottom-desc .right-desc h1 {
+    padding-right: 22px;
+  }
+  .banner-inner .bottom-desc .right-desc h1::after {
+    width: 10%;
+  }
+  .banner-inner .bottom-desc .right-desc .desc-inner {
+    gap: 12px;
+  }
+  .banner-inner .bottom-desc .right-desc .desc-inner ul {
+    gap: 4px;
+  }
+  .banner-inner .bottom-desc .right-desc .desc-inner ul li img {
+    width: 14px;
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+:root {
+  --font-principal: "Poppins", sans-serif;
+  --font-custom: "Playfair Display", serif;
+  --color-light: white;
+  --color-dark: #323232;
+  --color-1: #ffda79;
+  --color-2: #ffabe7;
+  --color-3: #d2bcf3;
+  --color-4: #edf3d8;
+  
+  --container-width: min(90%, 769px);
+  --card-count: 24;
+  --grid-gap: 32px;
+}
+
+body {
+  line-height: 1.2;
+  font-family: var(--font-principal);
+  color: var(--color-dark);
+}
+
+.l-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  background-color: var(--color-light);
+}
+
+.l-nav ul {
+  height: 100%;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.l-nav ul li {
+  position: relative;
+}
+
+.l-nav ul li::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  height: 12px;
+  background-color: var(--color-3);
+  opacity: 0;
+  z-index: -1;
+  transform: rotate(-8deg) translateY(50%);
+  transition: opacity 350ms ease;
+}
+
+.l-nav ul li:hover::before {
+  opacity: 1;
+}
+
+.l-nav ul li a {
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.l-hero__headings {
+  padding: 80px 32px;
+}
+
+.l-hero__headings-baseline {
+  width: max-content;
+  margin: 0 auto 40px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: var(--color-1);
+  animation: color-cycle 32s linear infinite;
+}
+
+.l-hero__headings-title {
+  width: var(--container-width);
+  margin: 0 auto 24px;
+  font-family: var(--font-custom);
+  font-size: 72px;
+  text-align: center;
+}
+
+.l-hero__headings-description {
+  width: var(--container-width);
+  margin: 0 auto 32px;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.l-hero__headings-cta {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.l-hero__headings-link {
+  color: white;
+  width: max-content;
+  padding: 24px;
+  background-color: #000;
+  text-decoration: none;
+  border-radius: 9999px;
+  opacity: 1;
+  transition: opacity 250ms ease;
+}
+
+.l-hero__headings-link:hover {
+  opacity: 0.8;
+}
+
+.l-hero__marquee-track {
+  display: flex;
+  gap: var(--grid-gap);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.l-hero__marquee-items {
+  display: grid;
+  grid-auto-columns: min-content;
+  grid-auto-flow: column;
+  gap: var(--grid-gap);
+  animation: scroll 60s linear infinite;
+}
+
+.l-hero__marquee-items:hover {
+  animation-play-state: paused;
+}
+
+.l-hero__marquee-item {
+  position: relative;
+  display: flex;
+  height: 273px;
+  width: 340px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.l-hero__marquee-item img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.l-section {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes color-cycle {
+  0% { background-color: var(--color-1); }
+  25% { background-color: var(--color-2); }
+  50% { background-color: var(--color-3); }
+  75% { background-color: var(--color-4); }
+  100% { background-color: var(--color-1); }
+}
+/* book section */
+@import url('https://fonts.googleapis.com/css?family=Sree+Krushnadevaraya&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Catamaran&display=swap');
+ :root {
+	 --margin: 110px;
+	 --background: #e2e2f5;
+	 --perspective: 1800px;
+	 --transition: transform 1s 0.2s, z-index 0s 0.5s;
+	 --yellow: #ffce14;
+}
+.book__section .pages_page {
+	
+	 width: 50%;
+	 position: absolute;
+	 right: 0px;
+	 height: 100%;
+	 transform-origin: 0 50%;
+	 margin-top: 30%;
+}
+ * {
+	 box-sizing: border-box;
+}
+ .overlay {
+	 background: rgba(255, 155, 0, 0.7019607843137254);
+	 position: fixed;
+	 width: 100%;
+	 pointer-events: none;
+	 height: 100%;
+	 z-index: -1;
+}
+ .book__section {
+	 margin: 0;
+	 padding: 0;
+	 background: var(--background);
+	 height: 100vh;
+	 overflow: hidden;
+	 font-family: 'Sree Krushnadevaraya', serif;
+}
+ .book__section .logo {
+	 font-size: 20px;
+	 padding: 33px 30px 30px 30px;
+	 line-height: 0;
+	 color: var(--yellow);
+}
+ .book__section .pagenumber {
+	 position: absolute;
+	 bottom: 20px;
+	 left: 34px;
+	 width: 400px;
+	 color: var(--yellow);
+	 letter-spacing: 60px;
+}
+ .book__section .pagenumber:after {
+	 height: 1px;
+	 width: 100px;
+	 background: var(--yellow);
+	 content: '';
+	 display: block;
+	 position: absolute;
+	 left: 20px;
+	 top: 19px;
+}
+ .book__section .hamburger {
+	 position: absolute;
+	 top: 38px;
+	 height: 20px;
+	 width: 30px;
+	 right: 30px;
+	 z-index: 1;
+}
+ .book__section .hamburger_part {
+	 width: 20px;
+	 height: 1px;
+	 position: absolute;
+	 right: 0;
+	 background: var(--yellow);
+}
+ .book__section .hamburger_part:nth-of-type(1) {
+	 top: 0px;
+}
+ .book__section .hamburger_part:nth-of-type(2) {
+	 top: 4.5px;
+}
+ .book__section .hamburger_part:nth-of-type(3) {
+	 top: 9px;
+}
+ .book__section .hamburger_part:last-child {
+	 width: 8px;
+}
+ .book__section .pages {
+	 width: calc(100% - var(--margin));
+	 height: calc(100% - var(--margin));
+	 position: absolute;
+	 left: 0;
+	 right: 0;
+	 margin: auto;
+	 transform: translateY(-50%);
+	 perspective: var(--perspective);
+	 box-shadow: 0 41px 38px -20px #0a3150;
+	 max-width: 1300px;
+	 max-height: 650px;
+}
+ .book__section .pages input {
+	 display: none;
+}
+ .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div .pagenumber, .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div + div .pagenumber {
+	 letter-spacing: 59px;
+	 transition: all 0.8s 0.7s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div .pagenumber:after, .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div + div .pagenumber:after {
+	 width: 100px;
+	 transition: all 1s 0.7s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div .content_centerimage, .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div + div .content_centerimage {
+	 -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	 clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	 transition: all 0.8s 0.5s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div .content h4, .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div + div .content h4, .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div .content h6, .book__section .pages input:nth-of-type(3):checked + input + div + div + div + div + div + div .content h6 {
+	 transition: all 1.5s 0.4s cubic-bezier(0.6, 0.045, 0.165, 1);
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(3):not(checked) + input + div + div + div + div + div .pagenumber, .book__section .pages input:nth-of-type(3):not(:checked) + input + div + div + div + div + div + div .pagenumber {
+	 letter-spacing: 0;
+	 transition: all 0.5s 0.2s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(3):not(checked) + input + div + div + div + div + div .pagenumber:after, .book__section .pages input:nth-of-type(3):not(:checked) + input + div + div + div + div + div + div .pagenumber:after {
+	 width: 0px;
+	 transition: all 0.5s 0.2s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(3):not(checked) + input + div + div + div + div + div .content_centerimage, .book__section .pages input:nth-of-type(3):not(:checked) + input + div + div + div + div + div + div .content_centerimage {
+	 -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+	 clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+	 transition: all 0.8s 0s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(3):not(checked) + input + div + div + div + div + div .content h4, .book__section .pages input:nth-of-type(3):not(:checked) + input + div + div + div + div + div + div .content h4, .book__section .pages input:nth-of-type(3):not(checked) + input + div + div + div + div + div .content h6, .book__section .pages input:nth-of-type(3):not(:checked) + input + div + div + div + div + div + div .content h6 {
+	 transition: all 1.5s 0.4s cubic-bezier(0.6, 0.045, 0.165, 1);
+	 transform: translateZ(200px);
+}
+ .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div .pagenumber, .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div + div .pagenumber {
+	 letter-spacing: 59px;
+	 transition: all 0.8s 0.7s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div .pagenumber:after, .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div + div .pagenumber:after {
+	 width: 100px;
+	 transition: all 1s 0.7s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div .content_section, .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div + div .content_section {
+	 transition: all 0.8s 0.7s cubic-bezier(0.6, 0.045, 0.165, 1);
+	 filter: blur(0);
+	 opacity: 1;
+}
+ .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div .content_section:nth-of-type(1), .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div + div .content_section:nth-of-type(1) {
+	 left: 100px;
+	 transition: all 0.8s 0.3s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div .content_section:nth-of-type(2), .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div + div .content_section:nth-of-type(2) {
+	 left: 230px;
+	 transition: all 0.8s 0.4s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div .content_section:nth-of-type(3), .book__section .pages input:nth-of-type(4):checked + div + div + div + div + div + div + div + div .content_section:nth-of-type(3) {
+	 left: 130px;
+	 transition: all 0.8s 0.5s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(4):not(checked) + div + div + div + div + div + div + div .pagenumber, .book__section .pages input:nth-of-type(4):not(:checked) + div + div + div + div + div + div + div + div .pagenumber {
+	 letter-spacing: 0;
+	 transition: all 0.5s 0.2s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(4):not(checked) + div + div + div + div + div + div + div .pagenumber:after, .book__section .pages input:nth-of-type(4):not(:checked) + div + div + div + div + div + div + div + div .pagenumber:after {
+	 width: 0px;
+	 transition: all 0.5s 0.2s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(4):not(checked) + div + div + div + div + div + div + div .content_section, .book__section .pages input:nth-of-type(4):not(:checked) + div + div + div + div + div + div + div + div .content_section {
+	 filter: blur(20px);
+	 transition: all 0.8s 0.5s cubic-bezier(0.6, 0.045, 0.165, 1);
+	 opacity: 0;
+}
+ .book__section .pages input:nth-of-type(4):not(checked) + div + div + div + div + div + div + div .content_section:nth-of-type(1), .book__section .pages input:nth-of-type(4):not(:checked) + div + div + div + div + div + div + div + div .content_section:nth-of-type(1) {
+	 left: 0;
+}
+ .book__section .pages input:nth-of-type(4):not(checked) + div + div + div + div + div + div + div .content_section:nth-of-type(2), .book__section .pages input:nth-of-type(4):not(:checked) + div + div + div + div + div + div + div + div .content_section:nth-of-type(2) {
+	 left: 0;
+}
+ .book__section .pages input:nth-of-type(4):not(checked) + div + div + div + div + div + div + div .content_section:nth-of-type(3), .book__section .pages input:nth-of-type(4):not(:checked) + div + div + div + div + div + div + div + div .content_section:nth-of-type(3) {
+	 left: 0;
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div h5 span, .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div h5 span {
+	 transition: all 1.5s 0.4s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div h5 span:nth-of-type(1), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div h5 span:nth-of-type(1) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div h5 span:nth-of-type(2), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div h5 span:nth-of-type(2) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div h5 span:nth-of-type(3), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div h5 span:nth-of-type(3) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div h5 span:nth-of-type(4), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div h5 span:nth-of-type(4) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div h5 span:nth-of-type(5), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div h5 span:nth-of-type(5) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div h5 span:nth-of-type(6), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div h5 span:nth-of-type(6) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .pagenumber, .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .pagenumber {
+	 letter-spacing: 59px;
+	 transition: all 0.8s 0.7s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .pagenumber:after, .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .pagenumber:after {
+	 width: 100px;
+	 transition: all 1s 0.7s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content, .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content {
+	 filter: blur(0px);
+	 opacity: 1;
+	 transition: all 1s 0.5s;
+	 perspective: var(--perspective);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content_picture, .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content_picture {
+	 -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	 clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	 transition: all 1s 0.8s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span, .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span {
+	 transition: all 1.5s 0.4s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(1), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(1) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(2), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(2) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(3), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(3) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(4), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(4) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(5), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(5) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(6), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(6) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(7), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(7) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(8), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(8) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(9), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(9) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(10), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(10) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(11), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(11) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(12), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(12) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(13), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(13) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(14), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(14) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(15), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(15) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(16), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(16) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(17), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(17) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(18), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(18) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(19), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(19) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(20), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(20) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(21), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(21) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(22), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(22) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(23), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(23) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(24), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(24) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(25), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(25) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(26), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(26) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(27), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(27) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(28), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(28) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(29), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(29) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(30), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(30) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(31), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(31) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(32), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(32) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(33), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(33) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(34), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(34) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(35), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(35) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(36), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(36) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(37), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(37) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(38), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(38) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(39), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(39) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div .content h1 span:nth-of-type(40), .book__section .pages input:nth-of-type(2):checked + input + input + div + div + div + div .content h1 span:nth-of-type(40) {
+	 transform: translateZ(0);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div h5 span, .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div h5 span {
+	 transition: all 1.5s 0.4s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div h5 span:nth-of-type(1), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div h5 span:nth-of-type(1) {
+	 transform: translateZ(26px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div h5 span:nth-of-type(2), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div h5 span:nth-of-type(2) {
+	 transform: translateZ(104px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div h5 span:nth-of-type(3), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div h5 span:nth-of-type(3) {
+	 transform: translateZ(156px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div h5 span:nth-of-type(4), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div h5 span:nth-of-type(4) {
+	 transform: translateZ(595px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div h5 span:nth-of-type(5), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div h5 span:nth-of-type(5) {
+	 transform: translateZ(552px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div h5 span:nth-of-type(6), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div h5 span:nth-of-type(6) {
+	 transform: translateZ(483px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .pagenumber, .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .pagenumber {
+	 letter-spacing: 0;
+	 transition: all 0.5s 0.2s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .pagenumber:after, .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .pagenumber:after {
+	 width: 0px;
+	 transition: all 0.5s 0.2s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content, .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content {
+	 filter: blur(10px);
+	 opacity: 0;
+	 transform: translateZ(50px);
+	 transition: all 1s 0.2s;
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content_picture, .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content_picture {
+	 transition: all 0.4s 0s cubic-bezier(0.6, 0.045, 0.165, 1);
+	 -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+	 clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span, .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span {
+	 transition: all 1.5s 0s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(1), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(1) {
+	 transform: translateZ(472px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(2), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(2) {
+	 transform: translateZ(184px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(3), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(3) {
+	 transform: translateZ(382px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(4), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(4) {
+	 transform: translateZ(318px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(5), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(5) {
+	 transform: translateZ(298px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(6), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(6) {
+	 transform: translateZ(231px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(7), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(7) {
+	 transform: translateZ(622px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(8), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(8) {
+	 transform: translateZ(617px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(9), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(9) {
+	 transform: translateZ(234px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(10), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(10) {
+	 transform: translateZ(278px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(11), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(11) {
+	 transform: translateZ(482px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(12), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(12) {
+	 transform: translateZ(481px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(13), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(13) {
+	 transform: translateZ(199px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(14), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(14) {
+	 transform: translateZ(624px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(15), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(15) {
+	 transform: translateZ(212px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(16), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(16) {
+	 transform: translateZ(570px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(17), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(17) {
+	 transform: translateZ(439px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(18), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(18) {
+	 transform: translateZ(359px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(19), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(19) {
+	 transform: translateZ(509px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(20), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(20) {
+	 transform: translateZ(396px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(21), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(21) {
+	 transform: translateZ(566px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(22), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(22) {
+	 transform: translateZ(595px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(23), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(23) {
+	 transform: translateZ(224px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(24), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(24) {
+	 transform: translateZ(588px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(25), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(25) {
+	 transform: translateZ(583px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(26), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(26) {
+	 transform: translateZ(647px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(27), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(27) {
+	 transform: translateZ(436px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(28), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(28) {
+	 transform: translateZ(316px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(29), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(29) {
+	 transform: translateZ(363px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(30), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(30) {
+	 transform: translateZ(373px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(31), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(31) {
+	 transform: translateZ(208px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(32), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(32) {
+	 transform: translateZ(656px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(33), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(33) {
+	 transform: translateZ(172px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(34), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(34) {
+	 transform: translateZ(692px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(35), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(35) {
+	 transform: translateZ(366px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(36), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(36) {
+	 transform: translateZ(203px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(37), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(37) {
+	 transform: translateZ(623px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(38), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(38) {
+	 transform: translateZ(682px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(39), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(39) {
+	 transform: translateZ(172px);
+}
+ .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div .content h1 span:nth-of-type(40), .book__section .pages input:nth-of-type(2):not(:checked) + input + input + div + div + div + div .content h1 span:nth-of-type(40) {
+	 transform: translateZ(175px);
+}
+ .book__section .pages_page {
+	 pointer-events: none;
+	 float: right;
+	 transform-style: preserve-3d;
+}
+ .book__section .pages_page:nth-of-type(1) {
+	 z-index: 7;
+	 transition: var(--transition);
+}
+ .book__section .pages_page:nth-of-type(2) {
+	 z-index: 6;
+	 transition: var(--transition);
+}
+ .book__section .pages_page:nth-of-type(3) {
+	 z-index: 5;
+	 transition: var(--transition);
+}
+ .book__section .pages_page:nth-of-type(4) {
+	 z-index: 4;
+	 transition: var(--transition);
+}
+ .book__section .pages_page:nth-of-type(5) {
+	 z-index: 3;
+	 transition: var(--transition);
+}
+ .book__section .pages_page:nth-of-type(6) {
+	 z-index: 2;
+	 transition: var(--transition);
+}
+ .book__section .pages_page:nth-of-type(7) {
+	 z-index: 1;
+	 transition: var(--transition);
+}
+ .book__section .pages_page:nth-of-type(8) {
+	 z-index: 0;
+	 transition: var(--transition);
+}
+ .book__section .pages_page:nth-of-type(1) {
+	 left: 0;
+	 z-index: 0;
+	 transform: rotateY(0deg) !important;
+	 pointer-events: none;
+}
+ .book__section .pages_page:nth-of-type(1) .pages_page__inner {
+	 transform: rotateY(0deg) !important;
+}
+ .book__section .pages_page:nth-of-type(2) {
+	 pointer-events: all;
+}
+ .book__section .pages_page:nth-of-type(odd) .pages_page__inner {
+	 transform: rotateY(180deg);
+}
+ .book__section .pages_page:nth-of-type(1) .pages_page__inner {
+	 background-size: 880px !important;
+	 background-position: center !important;
+	 background: url('../../3party/image/photoghapy/wedmodel1.jpeg');
+}
+ .book__section .pages_page:nth-of-type(2) .pages_page__inner {
+	 background-size: 870px !important;
+	 background-position: center !important;
+	 background: url('https://data.whicdn.com/images/86911589/original.jpg');
+}
+ .book__section .pages_page:nth-of-type(2) .pages_page__inner h4 {
+	 color: black;
+	 z-index: 3;
+}
+ .book__section .pages_page:nth-of-type(3) .pages_page__inner {
+	 background: url('../../3party/image/photoghapy/wedmodel2.jpeg');
+	 background-position: 0 0;
+}
+ .book__section .pages_page:nth-of-type(3) .pages_page__inner .content {
+	 -webkit-clip-path: polygon(0% 0%, 50% 0, 50% 100%, 0% 100%);
+	 clip-path: polygon(0% 0%, 50% 0, 50% 100%, 0% 100%);
+	 height: 100%;
+	 transform-style: preserve-3d;
+	 width: 200%;
+	 position: absolute;
+}
+ .book__section .pages_page:nth-of-type(6) .pages_page__inner {
+	 background: #4a5f5c;
+}
+ .book__section .pages_page:nth-of-type(4) .pages_page__inner .content {
+	 -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%);
+	 clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%);
+	 height: 100%;
+	 width: 200%;
+	 position: absolute;
+	 left: -100%;
+}
+ .book__section .pages_page:nth-of-type(4) .pages_page__inner .bg {
+	 -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%);
+	 clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%);
+	 height: 100%;
+	 width: 200%;
+	 position: relative;
+	 background: url('../../3party/image/photoghapy/wedmodel2.jpeg');
+	 background-size: 1400px !important;
+	 left: -100%;
+}
+ .book__section .pages_page:nth-of-type(5) .pages_page__inner {
+	 background: url('http://cdn.lightgalleries.net/4d80d92265da9/images/Tayna16-12_90574-2.jpg');
+	 background-size: 870px !important;
+	 background-position: center !important;
+}
+ .book__section .pages_page:nth-of-type(7) .pages_page__inner {
+	 background: url('../../3party/image/photoghapy/imgf2.jpg');
+	 background-position: 0 0;
+	 background-size: 1400px !important;
+}
+ .book__section .pages_page:nth-of-type(7) .pages_page__inner .content_section {
+	 position: absolute;
+}
+ .book__section .pages_page:nth-of-type(7) .pages_page__inner .content_section h2 {
+	 margin: 0;
+}
+ .book__section .pages_page:nth-of-type(7) .pages_page__inner .content_section h2, .book__section .pages_page:nth-of-type(7) .pages_page__inner .content_section p {
+	 margin: 0;
+	 color: var(--yellow);
+}
+ .book__section .pages_page:nth-of-type(7) .pages_page__inner .content_section p {
+	 line-height: 18px;
+	 opacity: 0.95;
+	 font-size: 13px;
+}
+ .book__section .pages_page:nth-of-type(7) .pages_page__inner .content_section:nth-of-type(1) {
+	 top: 100px;
+	 width: 200px;
+}
+ .book__section .pages_page:nth-of-type(7) .pages_page__inner .content_section:nth-of-type(2) {
+	 top: 274px;
+	 width: 300px;
+}
+ .book__section .pages_page:nth-of-type(7) .pages_page__inner .content_section:nth-of-type(3) {
+	 top: 410px;
+	 width: 260px;
+}
+ .book__section .pages_page:nth-of-type(8) .pages_page__inner {
+	 background: url('../../3party/image/photoghapy/imgf2.jpg');
+	 background-position: 0 0;
+}
+ .book__section .pages_page:nth-of-type(8) .pages_page__inner .content {
+	 -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%);
+	 clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%);
+	 height: 100%;
+	 width: 200%;
+	 position: absolute;
+	 left: -100%;
+}
+ .book__section .pages_page:nth-of-type(8) .pages_page__inner .bg {
+	 -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%);
+	 clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%);
+	 height: 100%;
+	 width: 200%;
+	 position: relative;
+	 background: url('../../3party/image/photoghapy/imgf2.jpg');
+	 background-size: 1400px !important;
+	 left: -100%;
+}
+ .book__section .pages_page__inner {
+	 background: url('https://www.colorfusionstudio.com/wp-content/uploads/2015/07/cfs-models-003-683x1024.jpg');
+	 background-size: 1400px !important;
+	 height: 100%;
+	 transform-style: preserve-3d;
+}
+ .book__section .pages_page__inner .control {
+	 position: absolute;
+	 z-index: 1;
+	 width: 31px;
+	 height: 31px;
+	 border: 1px solid var(--yellow);
+	 border-radius: 100px;
+	 top: 50%;
+	 transform: translateY(-50%);
+	 left: 30px;
+	 cursor: pointer;
+	 transition: all 0.23s;
+	 box-shadow: 0 0 0 0px rgba(191, 151, 38, 1);
+}
+ .book__section .pages_page__inner .control:hover {
+	 box-shadow: 0 0 0 10px rgba(191, 151, 38, 0.3);
+	 left: 34px;
+}
+ .book__section .pages_page__inner .control:hover:before {
+	 width: 40px;
+	 left: -40px;
+}
+ .book__section .pages_page__inner .control.next {
+	 left: auto;
+	 right: 30px;
+}
+ .book__section .pages_page__inner .control.next:hover {
+	 right: 34px;
+}
+ .book__section .pages_page__inner .control.next:hover:before {
+	 width: 40px;
+	 right: -40px;
+}
+ .book__section .pages_page__inner .control.next:before {
+	 left: auto;
+	 right: -33px;
+}
+ .book__section .pages_page__inner .control.next:after {
+	 transform: rotate(180deg);
+	 top: 5px;
+	 left: 11px;
+	 pointer-events: none;
+}
+ .book__section .pages_page__inner .control label {
+	 z-index: 2;
+	 width: 100%;
+	 height: 100%;
+	 position: absolute;
+	 cursor: pointer;
+}
+ .book__section .pages_page__inner .control:after {
+	 content: '\f104';
+	 display: block;
+	 font-family: 'Font Awesome 5 Free';
+	 font-weight: 900;
+	 color: var(--yellow);
+	 position: absolute;
+	 left: 10px;
+	 top: 50%;
+	 transform: translateY(-50%);
+	 transition: all 0.2s;
+}
+ .book__section .pages_page__inner .control:before {
+	 content: '';
+	 position: absolute;
+	 display: block;
+	 width: 32px;
+	 height: 1px;
+	 background: var(--yellow);
+	 top: 50%;
+	 transform: translateY(-50%);
+	 left: -32px;
+	 transition: all 0.2s;
+}
+ .book__section .pages_page__inner .footer {
+	 position: absolute;
+	 bottom: 26px;
+	 z-index: 2;
+	 color: var(--yellow);
+	 right: 30px;
+	 font-size: 12px;
+}
+ .book__section .pages_page__inner .footer i {
+	 margin: 0 10px;
+}
+ .book__section .pages_page__inner .content {
+	 transform-style: preserve-3d;
+	 position: absolute;
+	 z-index: 1;
+	 pointer-events: none;
+	 top: 0;
+	 transform: translateZ(0px);
+	 width: 100%;
+	 height: 100%;
+}
+ .book__section .pages_page__inner .content_centerimage {
+	 position: absolute;
+	 left: 0;
+	 right: 0;
+	 margin: auto;
+	 top: 50%;
+	 text-align: center;
+	 width: 60%;
+	 transform: translateY(-50%);
+	 max-width: 300px;
+}
+ .book__section .pages_page__inner .content_centerimage img {
+	 width: 100%;
+}
+ .book__section .pages_page__inner .content_center {
+	 position: absolute;
+	 text-align: center;
+	 width: 260px;
+	 right: -130px;
+	 padding-bottom: 10px;
+	 top: 50%;
+	 transform: translateY(-50%);
+	 -webkit-clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+	 clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+}
+ .book__section .pages_page__inner .content_center img {
+	 width: 300px;
+}
+ .book__section .pages_page__inner .content_center .logo {
+	 font-size: 30px;
+}
+ .book__section .pages_page__inner .content_center h4, .book__section .pages_page__inner .content_center h6 {
+	 color: var(--yellow);
+	 font-size: 38px;
+	 font-weight: normal;
+	 margin: 0;
+	 line-height: 38px;
+}
+ .book__section .pages_page__inner .content_center h4 {
+	 color: var(--yellow);
+	 font-size: 38px;
+	 font-weight: normal;
+	 margin: 0;
+	 line-height: 38px;
+	 border-top: 1px solid;
+	 border-bottom: 1px solid;
+	 padding: 15px 20px 29px;
+}
+ .book__section .pages_page__inner .content_center h6 {
+	 font-size: 20px;
+	 margin: 0;
+	 opacity: 0.5;
+}
+ .book__section .pages_page__inner .content_center h6:nth-of-type(2) {
+	 font-size: 16px;
+	 margin-top: 10px;
+}
+ .book__section .pages_page__inner .content_center.right {
+	 right: auto;
+	 left: -130px;
+	 -webkit-clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+	 clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+}
+ .book__section .pages_page__inner .content_picture {
+	 width: 220px;
+	 position: absolute;
+	 left: 50%;
+	 transform: translateX(-40px);
+	 top: 294px;
+}
+ .book__section .pages_page__inner .content_picture img {
+	 width: 100%;
+	 margin: 0;
+	 display: inline-block;
+}
+ .book__section .pages_page__inner .content_quote {
+	 position: absolute;
+	 left: calc(50% + 250px);
+	 bottom: 100px;
+	 width: 200px;
+}
+ .book__section .pages_page__inner .content_quote h5 span {
+	 display: block;
+	 color: var(--yellow);
+	 font-size: 34px;
+	 font-weight: normal;
+	 line-height: 24px;
+}
+ .book__section .pages_page__inner .content_quote h5 span.name, .book__section .pages_page__inner .content_quote h5 span.auth {
+	 font-size: 13px;
+	 opacity: 0.7;
+	 margin: 22px 0 0 0;
+	 position: Relative;
+	 left: 140px;
+}
+ .book__section .pages_page__inner .content_quote h5 span.auth {
+	 margin: -7px 0;
+}
+ .book__section .pages_page__inner .content_quote h5 span.quo {
+	 font-family: 'Catamaran', sans-serif;
+	 font-size: 80px;
+	 position: absolute;
+	 left: 195px;
+	 top: 90px;
+}
+ .book__section .pages_page__inner .content_quote h5 span.quo:nth-of-type(1) i {
+	 transform: rotate(180deg);
+	 left: -226px;
+	 top: -100px;
+	 display: block;
+	 font-style: normal;
+	 position: relative;
+}
+ .book__section .pages_page__inner .content_offset {
+	 position: absolute;
+	 width: 280px;
+	 top: 260px;
+	 left: 50%;
+	 transform: translateX(-350px);
+	 color: var(--yellow);
+}
+ .book__section .pages_page__inner .content_offset h2, .book__section .pages_page__inner .content_offset p {
+	 margin: 0;
+}
+ .book__section .pages_page__inner .content_offset h2 {
+	 color: var(--yellow);
+	 font-size: 16px;
+	 text-transform: uppercase;
+	 letter-spacing: 2px;
+	 margin: 20px 0 8px 0;
+}
+ .book__section .pages_page__inner .content_offset p {
+	 font-size: 13px;
+	 line-height: 20px;
+	 color: var(--yellow);
+}
+ .book__section .pages_page__inner .content h1 {
+	 font-size: 53px;
+	 color: var(--yellow);
+	 text-transform: uppercase;
+	 padding: 120px;
+	 margin: 0;
+	 font-weight: normal;
+	 letter-spacing: -6px;
+	 line-height: 51px;
+	 transform-style: preserve-3d;
+}
+ .book__section .pages_page__inner .content h1 span {
+	 transform-style: preserve-3d;
+	 display: inline-block;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(2):checked + input + input + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(2):checked + input + input + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(2):checked + input + input + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(2):checked + input + input + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(2):checked + input + input + div + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(2):checked + input + input + div + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(2):checked + input + input + div + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(2):checked + input + input + div + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(3):checked + input + div + div + div + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div + div + div {
+	 pointer-events: all;
+	 transform: rotateY(-180deg);
+	 z-index: 10;
+	 transition: var(--transition);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div + div + div .control {
+	 box-shadow: 0 0 0 200px rgba(0, 0, 0, 0);
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div + div + div + div {
+	 pointer-events: all;
+}
+ .book__section .pages input[type="radio"]:nth-of-type(4):checked + div + div + div + div + div + div {
+	 pointer-events: none;
+	 z-index: 9;
+}
+ 
